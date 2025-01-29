@@ -1,0 +1,54 @@
+{
+  "name": "payload-engaged-cli",
+  "version": "0.1.0",
+  "homepage": "https://payloadcms.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevEngage/payload-engaged.git",
+    "directory": "packages/engaged-utils"
+  },
+  "license": "MIT",
+  "author": "DevEngage(d) <dev@devengaged.com> (https://devengaged.com)",
+  "maintainers": [
+    {
+      "name": "DevEngage(d)",
+      "email": "info@devengaged.com",
+      "url": "https://devengaged.com"
+    }
+  ],
+  "type": "module",
+  "exports": {
+    "./types": {
+      "import": "./src/types.ts",
+      "require": "./src/types.ts"
+    },
+    "./src/*": {
+      "import": "./src/*",
+      "require": "./src/*",
+      "types": "./src/*"
+    }
+  },
+  "files": [
+    "package.json",
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm typecheck && pnpm build:swc",
+    "build:swc": "swc ./src -d ./dist --config-file .swcrc --strip-leading-paths",
+    "clean": "rimraf -g {dist,*.tsbuildinfo}",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "pnpm clean && pnpm build",
+    "test": "jest",
+    "typecheck": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/jest": "29.5.12",
+    "@types/node": "22.5.4"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  }
+}

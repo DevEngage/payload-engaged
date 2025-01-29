@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "baseUrl": ".",
+    "emitDeclarationOnly": false,
+    "rootDir": "."
+  },
+  "references": [
+    {
+      "path": "./packages/payload-engaged-cli"
+    },
+    {
+      "path": "./packages/plugin-supabase"
+    }
+  ],
+  "include": [
+    "${configDir}/src",
+    ".next/types/**/*.ts",
+    "./scripts/**/*.ts"
+  ]
+}
