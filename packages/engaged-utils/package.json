@@ -1,5 +1,5 @@
 {
-  "name": "payload-engaged-cli",
+  "name": "@payloadcms/engaged-utils",
   "version": "0.1.0",
   "homepage": "https://payloadcms.com",
   "repository": {

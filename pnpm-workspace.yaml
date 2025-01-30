@@ -1,7 +1,31 @@
 packages:
   # all packages in direct subdirs of packages/
+  - 'apps/*'
   - 'packages/*'
   - 'tools/*'
   - 'test'
   # exclude packages that are inside test directories
   # - '!**/test/**'
+# catalog:
+#   '@tanstack/react-query': ^5.56.2
+#   '@trpc/client': ^11.0.0-rc.528
+#   '@trpc/react-query': ^11.0.0-rc.528
+#   '@trpc/server': ^11.0.0-rc.528
+#   eslint: ^9.9.0
+#   prettier: ^3.3.3
+#   tailwindcss: ^3.4.10
+#   typescript: ^5.6.2
+#   zod: ^3.23.8
+
+# catalogs:
+#   react18:
+#     react: 18.2.0
+#     react-dom: 18.2.0
+#     '@types/react': ^18.3.3
+#     '@types/react-dom': ^18.3.0
+
+#   react19:
+#     react: ^19.0.0
+#     react-dom: ^19.0.0
+#     '@types/react': ^19.0.1
+#     '@types/react-dom': ^19.0.1
