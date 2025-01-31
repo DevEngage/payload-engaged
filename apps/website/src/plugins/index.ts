@@ -13,6 +13,8 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { supabasePlugin } from '@payload-engaged/plugin-supabase'
+// import { cookies } from 'next/headers'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
@@ -89,6 +91,19 @@ export const plugins: Plugin[] = [
         return [...defaultFields, ...searchFields]
       },
     },
+  }),
+
+  // custom supabase plugin
+  supabasePlugin({
+    supabaseUrl: process.env.SUPABASE_URL || '',
+    supabaseKey: process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_KEY || '',
+    collections: {
+      posts: {
+        sync: true,
+      },
+    },
+    // disabled: true,
+    // cookies: cookies,
   }),
   payloadCloudPlugin(),
 ]

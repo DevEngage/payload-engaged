@@ -15,6 +15,13 @@ export const Categories: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
   },
+  hooks: {
+    afterChange: [
+      async (props) => {
+        props.req.payload.findVersionByID
+      },
+    ],
+  },
   fields: [
     {
       name: 'title',
